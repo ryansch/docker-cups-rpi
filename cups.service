@@ -1,0 +1,23 @@
+[Unit]
+Description=CUPS Print Server
+After=docker.service
+BindsTo=docker.service
+
+[Service]
+TimeoutStartSec=0
+TimeoutStopSec=30
+Restart=always
+RestartSec=10
+
+WorkingDirectory=/opt/cups
+
+ExecStartPre=-/usr/local/bin/docker-compose kill cups
+ExecStartPre=-/usr/local/bin/docker-compose rm -f cups
+ExecStartPre=-/usr/local/bin/docker-compose pull cups
+
+ExecStart=/usr/local/bin/docker-compose up --force-recreate cups
+
+ExecStop=/usr/local/bin/docker-compose stop cups
+
+[Install]
+WantedBy=multi-user.target
