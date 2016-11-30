@@ -1,7 +1,7 @@
 version: '2'
 services:
   cups:
-    image: a0js/rpi-cups:latest
+    image: ryansch/cups-rpi:latest
     container_name: cups
     ports:
       - "631:631"
