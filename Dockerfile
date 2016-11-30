@@ -1,7 +1,7 @@
 FROM armv7/armhf-ubuntu:16.10
 MAINTAINER Ryan Schlesinger <ryan@ryanschlesinger.com>
 
-RUN apt-get update && apt-get install -y --no-install-recommends \
+RUN apt-get update && apt-get install -y \
       locales \
       sudo \
       whois \
