@@ -20,7 +20,7 @@ RUN useradd \
   --shell=/bin/bash \
   --password=$(mkpasswd print) \
   print \
-  && sed -i '/%sudo[[:space:]]/ s/ALL[[:space:]]*$/NOPASSWD:ALL/' /etc/sudoers \
+  && sed -i '/%sudo[[:space:]]/ s/ALL[[:space:]]*$/NOPASSWD:ALL/' /etc/sudoers
 
 COPY cupsd.conf /etc/cups/cupsd.conf
 EXPOSE 631
